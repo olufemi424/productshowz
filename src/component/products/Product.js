@@ -14,7 +14,7 @@ export default function Product(props) {
 
   return (
     <div className="product__item">
-      <span className="product__item--deal-badge">{deal}</span>
+      {deal && <span className="product__item--deal-badge">{deal}</span>}
       {images[0].imageURL ? (
         <img
           className="product__item--img"
@@ -24,7 +24,7 @@ export default function Product(props) {
       ) : (
         noImg
       )}
-      <div className="product__item--title">{title}</div>
+      {title && <div className="product__item--title">{title}</div>}
     </div>
   );
 }
