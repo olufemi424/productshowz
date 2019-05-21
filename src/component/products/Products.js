@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPostalCode } from "../../../store/actions/postalcodeActions";
 import { getAllProducts } from "../../../store/actions/productAction";
@@ -18,7 +19,6 @@ export class Products extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.selectOption !== this.state.selectOption) {
-      console.log(prevState.selectOption, this.state.selectOption);
       this.props.getAllProducts(this.state.selectOption);
     }
   }
@@ -52,6 +52,11 @@ export class Products extends Component {
     );
   }
 }
+
+Products.propTypes = {
+  postalcode: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired
+};
 
 const mapStateToProps = (state, ownProps) => ({
   postalcode: state.postalcode.postalcode,

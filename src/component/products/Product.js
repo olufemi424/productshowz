@@ -1,14 +1,9 @@
 import React, { Fragment } from "react";
 import moment from "moment";
+import PropTypes from "prop-types";
 
 export default function Product(props) {
-  const {
-    title,
-    images,
-    deal,
-    saleEndDateString,
-    promotion: { buyOnlineLinkURL }
-  } = props.product;
+  const { title, images, deal } = props.product;
 
   const noImg = <div className="noImg">no image</div>;
 
@@ -28,3 +23,7 @@ export default function Product(props) {
     </div>
   );
 }
+
+Product.propTypes = {
+  product: PropTypes.object.isRequired
+};
